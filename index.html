@@ -8,19 +8,39 @@
     <title>Simulador de CDB</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href='css/style.css'>
 </head>
 
 <body>
     <main>
+        <div class="titulo">
+            <h1>Simulador de Investimento CDB</h1>
+        </div>
         <div class=" valores">
-            <form action="" class="small-12 medium-6 large-6 cell">
-                <br>
-                <input type="number" name="entrada" id="entrada" placeholder="VALOR DE ENTRADA">
-                <br><br><input type="number" name="mensal" id="mensal" placeholder="APORTE MENSAL">
-                <br><br><input type="number" name="prazo" id="prazo">
-                <br><br><input type="number" name="rentabilidade" id="rentabilidade">
-                <br><br><button type="submit">Simular</button>
+            <form action="" class="">
+                <div>
+                    <label for="">Investimento Inicial</label>
+                    <input type="number" name="entrada" id="entrada" placeholder="Investimento Inicial">
+                </div>
+
+                <div>
+                    <label for="">Investimento Mensal</label>
+                    <input type="number" name="mensal" id="mensal" placeholder="Investimento Mensal">
+                </div>
+
+
+
+                <div>
+                    <label for="">Prazo</label>
+                    <input type="number" name="prazo" id="prazo" placeholder="Prazo em meses">
+                </div>
+
+                <div>
+                    <label for="">Rendimento %</label>
+                    <input type="number" name="rentabilidade" id="rentabilidade" placeholder="% Rentabilidade">
+                </div>
+
+                <button type="submit" class="botao" id="botao">Simular</button>
             </form>
         </div>
         <div class="resultado"></div>
