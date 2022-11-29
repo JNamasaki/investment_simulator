@@ -17,7 +17,7 @@
             <h1>Simulador de Investimento CDB</h1>
         </div>
         <div class=" valores">
-            <form action="" class="">
+            <!-- <form action="" class="">
                 <div>
                     <label for="">Investimento Inicial</label>
                     <input type="number" name="entrada" id="entrada" placeholder="Investimento Inicial">
@@ -41,11 +41,38 @@
                 </div>
 
                 <button type="submit" class="botao" id="botao">Simular</button>
+            </form> -->
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="entrada">Investimento Inicial</label>
+                        <input type="number" class="form-control" id="entrada" placeholder="R$ 0,00">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="mensal">Investimentos Mensal</label>
+                        <input type="number" class="form-control" id="mensal" placeholder="R$ 0,00">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="prazo">Prazo em meses</label>
+                        <input type="number" class="form-control" id="prazo" placeholder="0">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="rendimento">Rendimento %</label>
+                        <input type="number" class="form-control" id="rendimento" placeholder="%  0,00">
+                    </div>
+                </div>
+                <a type="submit" id="simular" class="btn btn-primary btn-lg active">Simular</a>
+
+                <button type="reset " id="limpar" class="btn btn-outline-secondary">Limpar</button>
             </form>
         </div>
-        <div class="resultado"></div>
+        <div class="resultados hidden"></div>
+
 
     </main>
+
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 

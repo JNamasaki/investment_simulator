@@ -1,37 +1,56 @@
 var cdi = 13.65; // Taxa CDI dia 28/11/2022 = 13,65% ao ano
-const botao = document.getElementById('botao');
-const rent = document.getElementById('rentabilidade');
+const simular = document.getElementById('simular');
+const limpar = document.getElementById('limpar');
+const rent = document.getElementById('rendimento');
 const prazo = document.getElementById('prazo');
 const inicial_invest = document.getElementById('entrada');
 const mensal_invest = document.getElementById('mensal');
+var resultados = document.getElementsByClassName('resultados');
 
 
 
-// console.log('O valor atualizado pelo CDI é : ' + valor_atualizado);
 
 
-botao.addEventListener('click', e => {
+
+
+simular.addEventListener('click', e => {
+    e.preventDefault()
     let valor_final = calcula_cdb(rent.value, prazo.value, inicial_invest.value, mensal_invest.value);
     resultado_tela(valor_final);
+
+    console.log(rent.value, prazo.value, inicial_invest.value, mensal_invest.value);
+
 });
 
 
 function taxa(rentabilidade) {
     let index;
-    index = (cdi * rentabilidade) / 1000; // % ao ano
-
-    index = (((1 + index) ^ (1 / 12)) - 1)
-    return index;
+    let juros
+    index = ((cdi / 100) * (rentabilidade / 100)); // % ao ano
+    console.log(index.toFixed(4))
+    juros = ((1 + index) ** (1 / 12) - 1);
+    console.log(juros.toFixed(4))
+    return juros;
 }
 
 function calcula_cdb(rentabilidade, prazo, inicial, mensal) {
     let index = taxa(rentabilidade);
     let atualizacao_mensal = inicial;
     for (let i = 0; i < prazo; i++) {
-        if (i == 0) atualizacao_mensal = (atualizacao_mensal) * (1 + (index / 100));
-        else atualizacao_mensal = (atualizacao_mensal + mensal) * (1 + (index / 100));
+        if (i == 0) atualizacao_mensal = (atualizacao_mensal + mensal);
+        else atualizacao_mensal = (atualizacao_mensal + mensal) * (1 + (index));
     }
     let valor_final = atualizacao_mensal;
+    console.log(valor_final);
 
     return valor_final;
+}
+
+function resultado_tela(valor) {
+
+    let resultado = document.createElement('div');
+    let valor_final = document.createElement('p');
+    valor_final.innerHTML = 'Valor Final do Investimento' + valor;
+    resultados.appendChild(resultado);
+    resultado.appendChild(valor_final);
 }
