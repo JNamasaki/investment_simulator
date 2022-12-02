@@ -17,36 +17,44 @@
             <h1>Simulador de Investimento CDB</h1>
         </div>
         <div class=" valores">
-            <form action="" class="">
-                <div>
-                    <label for="">Investimento Inicial</label>
-                    <input type="number" name="entrada" id="entrada" placeholder="Investimento Inicial">
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="entrada">Investimento Inicial</label>
+                        <input type="number" class="form-control" id="entrada" placeholder="R$ 0,00">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="mensal">Investimentos Mensal</label>
+                        <input type="number" class="form-control" id="mensal" placeholder="R$ 0,00">
+                    </div>
                 </div>
-
-                <div>
-                    <label for="">Investimento Mensal</label>
-                    <input type="number" name="mensal" id="mensal" placeholder="Investimento Mensal">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="prazo">Prazo em meses</label>
+                        <input type="number" class="form-control" id="prazo" placeholder="0">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="rendimento">Rendimento %</label>
+                        <input type="number" class="form-control" id="rendimento" placeholder="%  0,00">
+                    </div>
                 </div>
+                <a type="submit" id="simular" class="btn btn-primary btn-lg active">Simular</a>
 
-
-
-                <div>
-                    <label for="">Prazo</label>
-                    <input type="number" name="prazo" id="prazo" placeholder="Prazo em meses">
-                </div>
-
-                <div>
-                    <label for="">Rendimento %</label>
-                    <input type="number" name="rentabilidade" id="rentabilidade" placeholder="% Rentabilidade">
-                </div>
-
-                <button type="submit" class="botao" id="botao">Simular</button>
+                <button type="reset " id="limpar" class="btn btn-outline-secondary">Limpar</button>
             </form>
         </div>
-        <div class="resultado"></div>
+        <div class="resultados hidden" id="container_resultados">
+            <h3 id="resultado"></h3><br>
+            <p id="total_investido"></p><br>
+            <p id="total_juros"></p>
+        </div>
+
 
     </main>
+
     <script type="text/javascript" src="js/main.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,10 @@
+function taxa(rentabilidade) {
+    let juros;
+    juros = ((1 + (rentabilidade / 100)) ** (1 / 12) - 1); // % ao mes
+
+    return juros;
+}
+
+module.exports = function cdb_prefixado() {
+
+}

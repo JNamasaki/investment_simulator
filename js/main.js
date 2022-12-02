@@ -1,37 +1,62 @@
 var cdi = 13.65; // Taxa CDI dia 28/11/2022 = 13,65% ao ano
-const botao = document.getElementById('botao');
-const rent = document.getElementById('rentabilidade');
+
+
+const simular = document.getElementById('simular');
+const rent = document.getElementById('rendimento');
 const prazo = document.getElementById('prazo');
 const inicial_invest = document.getElementById('entrada');
 const mensal_invest = document.getElementById('mensal');
+const resultados = document.getElementById('container_resultados');
+const resultado = document.getElementById('resultado');
+const total_investido = document.getElementById('total_investido');
+const total_juros = document.getElementById('total_juros');
 
 
 
-// console.log('O valor atualizado pelo CDI é : ' + valor_atualizado);
-
-
-botao.addEventListener('click', e => {
-    let valor_final = calcula_cdb(rent.value, prazo.value, inicial_invest.value, mensal_invest.value);
+simular.addEventListener('click', e => {
+    e.preventDefault()
+    let valor_final = calcula_cdb_pos(rent.value, prazo.value, inicial_invest.value, mensal_invest.value);
     resultado_tela(valor_final);
+
+    console.log(rent.value, prazo.value, inicial_invest.value, mensal_invest.value);
+
 });
 
 
-function taxa(rentabilidade) {
-    let index;
-    index = (cdi * rentabilidade) / 1000; // % ao ano
+function resultado_tela(valor) {
+    resultados.classList.remove('hidden');
 
-    index = (((1 + index) ^ (1 / 12)) - 1)
-    return index;
+    resultado.innerHTML = `O Resultado esperado para o investimento é ${inicial_invest.value}`;
+    total_investido.innerHTML = total_aplicado();
+
+
+
 }
 
-function calcula_cdb(rentabilidade, prazo, inicial, mensal) {
+function total_aplicado() {
+    let mensal = (mensal_invest.value * prazo.value);
+    let total = (inicial_invest.value + mensal);
+    return total;
+}
+
+function calcula_cdb_pos(rentabilidade, prazo, inicial, mensal) {
     let index = taxa(rentabilidade);
     let atualizacao_mensal = inicial;
     for (let i = 0; i < prazo; i++) {
-        if (i == 0) atualizacao_mensal = (atualizacao_mensal) * (1 + (index / 100));
-        else atualizacao_mensal = (atualizacao_mensal + mensal) * (1 + (index / 100));
+        if (i == 0) atualizacao_mensal = (atualizacao_mensal + mensal);
+        else atualizacao_mensal = (atualizacao_mensal + mensal) * (1 + (index));
     }
     let valor_final = atualizacao_mensal;
 
     return valor_final;
+}
+
+
+function taxa(rentabilidade) {
+    let index;
+    let juros
+    index = ((cdi / 100) * (rentabilidade / 100)); // % ao ano
+    juros = ((1 + index) ** (1 / 12) - 1);
+
+    return juros;
 }
