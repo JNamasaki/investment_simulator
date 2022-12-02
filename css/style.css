@@ -14,12 +14,14 @@ main {
     padding: 0;
     text-align: center;
     align-items: flex-end;
+    color: aliceblue
 }
 
-.valores {
+.valores,
+.resultados {
     display: flex;
     text-align: center;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background: rgba( 255, 246, 246, 0.3);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
