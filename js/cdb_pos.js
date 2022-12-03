@@ -9,8 +9,27 @@ function taxa(rentabilidade) {
     return juros;
 }
 
-module.exports = function calcula_cdb_pos(rentabilidade, prazo, inicial, mensal) {
+function calcula_cdb_pos(rentabilidade, prazo, inicial, mensal) {
     let index = taxa(rentabilidade);
+    let atualizacao_mensal = inicial;
+    for (let i = 0; i < prazo; i++) {
+        if (i == 0) atualizacao_mensal = (atualizacao_mensal + mensal);
+        else atualizacao_mensal = (atualizacao_mensal + mensal) * (1 + (index));
+    }
+    let valor_final = atualizacao_mensal;
+
+    return valor_final;
+}
+
+function taxa_pre(rentabilidade) {
+    let juros;
+    juros = ((1 + (rentabilidade / 100)) ** (1 / 12) - 1); // % ao mes
+
+    return juros;
+}
+
+function cdb_prefixado(rentabilidade, prazo, inicial, mensal) {
+    let index = taxa_pre(rentabilidade);
     let atualizacao_mensal = inicial;
     for (let i = 0; i < prazo; i++) {
         if (i == 0) atualizacao_mensal = (atualizacao_mensal + mensal);

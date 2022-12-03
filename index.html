@@ -19,6 +19,18 @@
         <div class=" valores">
 
             <form>
+                <div class=" form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="prefixado">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Pre-fixado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="posfixado">
+                    <label class="form-check-label" for="defaultCheck2">
+                      Pos-fixado
+                    </label>
+                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="entrada">Investimento Inicial</label>
@@ -35,7 +47,7 @@
                         <input type="number" class="form-control" id="prazo" placeholder="0">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="rendimento">Rendimento %</label>
+                        <label id="label_rent" for="rendimento">Rendimento %</label>
                         <input type="number" class="form-control" id="rendimento" placeholder="%  0,00">
                     </div>
                 </div>
@@ -55,8 +67,10 @@
 
 
     </main>
-
+    <script type="text/javascript" src="js/cdb_pre.js"></script>
+    <script type="text/javascript" src="js/cdb_pos.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+
 
 </body>
 
